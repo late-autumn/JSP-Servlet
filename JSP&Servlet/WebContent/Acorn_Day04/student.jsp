@@ -9,7 +9,7 @@
 <body>
 
 <% request.setCharacterEncoding("utf-8"); %>
-<jsp:useBean id="student" class ="Day04.javalec.Student" scope="page"/>
+<jsp:useBean id="student" class ="day04.java.Student" scope="page"/>
 
 <hr>
 

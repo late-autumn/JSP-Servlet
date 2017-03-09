@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="student" class ="Day04.javalec.Student" scope="page"/>
+<jsp:useBean id="student" class ="day04.java.Student" scope="page"/>
 <!DOCTYPE html>
 <html>
 <head>

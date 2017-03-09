@@ -1,4 +1,4 @@
-package Day04.javalec;
+package day04.java;
 
 public class Student {
 
