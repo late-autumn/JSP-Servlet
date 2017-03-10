@@ -1,4 +1,4 @@
-package day01;
+package day01.java;
 
 import java.io.IOException;
 import java.sql.Connection;
