@@ -1,10 +1,9 @@
-package day13.java;
+package day14.java;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class FrontCon
+ * Servlet implementation class RequestObj
  */
-//@WebServlet("*.do")
-public class FrontCon_02 extends HttpServlet {
+@WebServlet("/RequestObj_02")
+public class RequestObj_02 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FrontCon_02() {
+    public RequestObj_02() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,32 +47,16 @@ public class FrontCon_02 extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("actionDo");
 		
-		String uri = request.getRequestURI();
-		String conPath = request.getContextPath();
-		String command = uri.substring(conPath.length());
+		String id = (String)request.getAttribute("id");
+		String pw = (String)request.getAttribute("pw");
 		
-		if(command.equals("/membersAll.do")) {
-			response.setContentType("text/html; charset=EUC-KR");
-			PrintWriter writer = response.getWriter();
-			writer.println("<html><head></head><body>");
-			
-			Service_02 service = new MembersAllService_02();
-			ArrayList<MemberDto_02> dtos = service.execute(request, response);
-			
-			for (int i = 0; i < dtos.size(); i++) {
-				MemberDto_02 dto = dtos.get(i);
-				String id = dto.getId();
-				String pw = dto.getPw();
-				String name = dto.getName();
-				String eMail = dto.geteMail();
-				Timestamp rDate = dto.getrDate();
-				String address = dto.getAddress();
-				
-				writer.println(id + ", " + pw + ", " + name + ", " + eMail + ", " + rDate.toLocalDateTime() + ", " + address + "<hr />");
-			}
-			
-			writer.println("</body></html>");
-		}
+		response.setContentType("text/jhtml; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
+		writer.print("<html><head></head><body>");
+		writer.print("RequestObj_02" + "<hr />");
+		writer.print("id : " + id + "<br />");
+		writer.print("pw : " + pw);
+		writer.print("</body></html>");
 		
 	}
 
